@@ -516,6 +516,102 @@ Apple logró el hito de 1000 songs in your pocket debido a un disco duro de 1.8 
         <div id="lifecycle-container" class="box reveal" style="max-width: 1100px; margin: 0 auto 100px; display: none; transition: all 0.5s ease;">
             <iframe src="Ciclo_Producto.pdf" title="Ciclo de Vida del Producto"></iframe>
         </div>
+        <!-- SECCIÓN: INNOVACIÓN SOCIAL -->
+<section id="innovacion-social" style="padding: 60px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6;">
+    <div style="max-width: 900px; margin: 0 auto;">
+        
+        <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 40px; color: #333;">Innovación Social</h2>
+
+        <!-- Gráfico Animado de Innovación Social -->
+        <div class="social-innovation-graph" style="display: flex; justify-content: center; margin-bottom: 50px;">
+            <div class="circle-container">
+                <div class="main-node">Social</div>
+                <div class="pulse"></div>
+                <div class="node n1">Acceso</div>
+                <div class="node n2">Salud</div>
+                <div class="node n3">Equidad</div>
+                <div class="node n4">Urbano</div>
+            </div>
+        </div>
+
+        <style>
+            .circle-container { position: relative; width: 200px; height: 200px; }
+            .main-node { 
+                position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                background: #2c3e50; color: white; padding: 20px; border-radius: 50%;
+                z-index: 10; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            }
+            .pulse {
+                position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                width: 60px; height: 60px; background: rgba(52, 152, 219, 0.4);
+                border-radius: 50%; animation: pulse-animation 2s infinite;
+            }
+            .node {
+                position: absolute; background: #3498db; color: white;
+                padding: 8px 12px; border-radius: 20px; font-size: 0.8em;
+                animation: float 3s ease-in-out infinite;
+            }
+            .n1 { top: -10px; left: 10px; }
+            .n2 { top: 120px; right: -20px; animation-delay: 0.5s; }
+            .n3 { bottom: -10px; left: 20px; animation-delay: 1s; }
+            .n4 { top: 40px; right: -50px; animation-delay: 1.5s; }
+
+            @keyframes pulse-animation {
+                0% { width: 60px; height: 60px; opacity: 1; }
+                100% { width: 250px; height: 250px; opacity: 0; }
+            }
+            @keyframes float {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
+            }
+        </style>
+
+        <!-- Contenido Informativo -->
+        <div class="content-grid" style="display: grid; gap: 30px;">
+            
+            <div>
+                <p><strong>PROMPTS: ¿Encontraron una carencia puramente técnica o una barrera de exclusión social?</strong></p>
+                <p>Nuestro servicio cubre cualquier tipo de personal en la universidad, no discrimina un grupo social y el uso de la aplicación es fácil. La forma de organización dentro de la estructura es al azar, es decir, depende de quien reserve en el momento. En casos de que alguien que no cuente con un celular o tenga un celular de gama baja, es una carencia técnica que hemos encontrado que se convierte en algo social. También para personas con discapacidad motora, contamos con el apoyo del personal de vigilancia para guiar el proceso de escaneo, posicionamiento y verificación.</p>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #eee;">
+
+            <div>
+                <p><strong>PROPOSALS: ¿Qué tanto peso tuvo la opinión de la comunidad universitaria frente a sus asunciones como ingenieros?</strong></p>
+                <p>Aún estamos en una fase introductoria de ser vistos como ingenieros. Hemos cometido errores al hacer preguntas no tan precisas en la fase de investigación. Sin embargo, el diseño de la imagen de marca fue el elemento que más ajustamos de acuerdo a la comunidad, pues existía una discordancia con nuestros valores. Aprendemos de estos errores para ser más precisos en la propuesta de servicio y enfocarnos en las verdaderas necesidades del usuario sin desviarnos.</p>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #eee;">
+
+            <div>
+                <p><strong>PROTOTYPING: ¿Cuál creen que será el choque más fuerte entre su teoría de diseño y la realidad del comportamiento humano?</strong></p>
+                <p>El principal choque es el olvido de la reserva debido al <em>burnout</em> u ocupación académica. Para esto, aplicamos <strong>behaviour design</strong> con notificaciones no invasivas. Otro reto es la confiabilidad: al integrar lockers de seguridad, algunos usuarios podrían preferir sus propios medios de protección o dudar de la fiabilidad del sistema estandarizado.</p>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #eee;">
+
+            <div>
+                <p><strong>SUSTAINING: ¿Cómo planean que este servicio sobreviva cuando el entusiasmo inicial o el presupuesto de la clase se agote?</strong></p>
+                <p>Mediante indicadores de éxito (<strong>KPIs</strong>). Si logramos una tasa de retorno superior al 60% y un buen <strong>NPS</strong> (Net Promoter Score) en seguridad, demostraremos que el servicio es un derecho fundamental. Esto incentivará la inversión de la universidad y de externos (empresas o personas naturales) para mantener la operación.</p>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #eee;">
+
+            <div>
+                <p><strong>SCALING: ¿Cuáles son los mayores obstáculos para que sea el estándar en otros escenarios?</strong></p>
+                <p>La instalación de infraestructura física fuera del campus y la adaptación a nuevos espacios. También la gestión operativa de bases de datos masivas y el cumplimiento de requerimientos jurídicos de movilidad urbana para interconectarse con sistemas públicos como el <strong>SITP</strong> o <strong>Transmilenio</strong>.</p>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #eee;">
+
+            <div>
+                <p><strong>SYSTEMIC CHANGE: ¿Qué tendría que pasar en las leyes de la ciudad o en los hábitos de los ciudadanos para que su propuesta deje de ser vista como una 'innovación' y pase a ser vista como un derecho?</strong></p>
+                <p>Debe normalizarse en empresas públicas y privadas hasta considerarse un tema de <strong>salud pública</strong> y un estándar mínimo urbano. En lo legal, nuestra aplicación integrará la <strong>Ley 2486 de 2025</strong> (bicicletas eléctricas con pedaleo asistido y motor < 350W) mediante verificación fotográfica para asegurar el uso correcto de las ciclorrutas.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
     </div>
 
     <script>
