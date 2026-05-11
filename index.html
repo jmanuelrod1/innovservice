@@ -222,10 +222,9 @@
         .back-btn:hover { color: var(--text-main); }
         
         .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; }
-        
         .full-layout { width: 100%; }
 
-        .box { background: var(--surface); border: 1px solid var(--glass-border); border-radius: 24px; padding: 20px; backdrop-filter: blur(10px); }
+        .box { background: var(--surface); border: 1px solid var(--glass-border); border-radius: 24px; padding: 20px; backdrop-filter: blur(10px); margin-bottom: 30px;}
         
         iframe { width: 100%; height: 750px; border-radius: 12px; border: none; background: #fff; }
         .image-showcase { width: 100%; height: 600px; border-radius: 12px; object-fit: cover; }
@@ -234,23 +233,14 @@
 
         .subtitulo-bikeep {
             text-align: center;
-            color: #1a3c2a; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #dcedc8; 
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 2.2rem;
             margin-top: 20px; 
             margin-bottom: 30px; 
             font-weight: 800;
-            position: relative;
         }
-        .subtitulo-bikeep::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: #aed581;
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }    
+
         .tabla-contenedor {
             width: 100%;
             overflow-x: auto;
@@ -262,7 +252,7 @@
         .tabla-bikeep {
             width: 100%;
             border-collapse: collapse;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             text-align: left;
         }
         .tabla-bikeep th {
@@ -270,29 +260,45 @@
             color: #ffffff;
             padding: 18px;
             font-weight: 700;
-            font-size: 1.1rem;
         }
         .tabla-bikeep td {
             padding: 16px;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            color: #333;
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .tabla-bikeep tbody tr.fila-1 { background-color: #dcedc8; color: #333; }
-        .tabla-bikeep tbody tr.fila-2 { background-color: #c5e1a5; color: #333; }
-        .tabla-bikeep tbody tr.fila-3 { background-color: #aed581; color: #333; }
+        .tabla-bikeep tbody tr.fila-1 { background-color: #dcedc8; }
+        .tabla-bikeep tbody tr.fila-2 { background-color: #c5e1a5; }
+        .tabla-bikeep tbody tr.fila-3 { background-color: #aed581; }
         .tabla-bikeep tbody tr.fila-4 { background-color: #558b2f; color: #fff; }
         .tabla-bikeep tbody tr.fila-5 { background-color: #33691e; color: #fff; }
 
-        .tabla-bikeep tbody tr {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: default;
+        /* Estilos Innovación Social */
+        .social-section { color: var(--text-main); text-align: left; }
+        .social-section strong { color: var(--accent); }
+        .circle-container { position: relative; width: 200px; height: 200px; margin: 40px auto;}
+        .main-node { 
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: var(--primary); color: white; padding: 25px; border-radius: 50%;
+            z-index: 10; font-weight: bold; box-shadow: 0 0 20px var(--primary-glow);
         }
-        .tabla-bikeep tbody tr:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-            z-index: 10;
-            position: relative;
+        .pulse {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 60px; height: 60px; background: rgba(99, 102, 241, 0.4);
+            border-radius: 50%; animation: pulse-animation 2s infinite;
+        }
+        .node {
+            position: absolute; background: var(--accent); color: white;
+            padding: 8px 15px; border-radius: 20px; font-size: 0.8em;
+            animation: float 3s ease-in-out infinite;
+        }
+        .n1 { top: -10px; left: 10px; }
+        .n2 { top: 120px; right: -20px; animation-delay: 0.5s; }
+        .n3 { bottom: -10px; left: 20px; animation-delay: 1s; }
+        .n4 { top: 40px; right: -50px; animation-delay: 1.5s; }
+
+        @keyframes pulse-animation {
+            0% { width: 60px; height: 60px; opacity: 1; }
+            100% { width: 250px; height: 250px; opacity: 0; }
         }
     </style>
 </head>
@@ -305,7 +311,7 @@
         <a onclick="openView('agencia-view')" class="nav-link">Agencia</a>
     </nav>
 
-    <div id="main-view" style="display: block;">
+    <div id="main-view">
         <section id="home">
             <div class="video-wrapper reveal active">
                 <video class="hero-video" autoplay loop muted playsinline>
@@ -357,6 +363,7 @@
         </footer>
     </div>
 
+    <!-- Vistas de Detalle -->
     <div id="mies-view" class="detail-view">
         <button class="back-btn" onclick="showMain()">← Volver al Logbook</button>
         <h1>Mies Van de Rohe</h1>
@@ -402,7 +409,6 @@ Apple logró el hito de 1000 songs in your pocket debido a un disco duro de 1.8 
 
     <div id="agencia-view" class="detail-view">
         <button class="back-btn" onclick="showMain()">← Volver al Logbook</button>
-        
         <h1 style="text-align: center; font-size: 4.5rem; width: 100%; margin-bottom: 50px;">
             <span class="color-shift">Oasis</span>
         </h1>
@@ -425,105 +431,57 @@ Apple logró el hito de 1000 songs in your pocket debido a un disco duro de 1.8 
         <div class="box reveal" style="max-width: 1000px; margin: 0 auto 50px; text-align: center;">
             <img src="bikeep.png" alt="Bikeep" style="max-height: 180px; object-fit: contain; margin-bottom: 20px; border-radius: 12px;">
             <p style="color: var(--text-main); text-align: left; padding: 10px 20px; font-size: 1.1rem; line-height: 1.7;">
-                <strong>Bikeep</strong> es una empresa tecnológica pionera en la infraestructura de estacionamiento seguro para micromovilidad urbana. Su sistema inteligente, que interconecta anclajes de hardware robusto con software de gestión mediante IoT, permite a los usuarios parquear con total tranquilidad operando todo desde una tarjeta inteligente o su celular. Se consolida como un gran referente para evaluar la integración de sistemas digitales y la confianza que se transmite al usuario final.
+                <strong>Bikeep</strong> es una empresa tecnológica pionera en la infraestructura de estacionamiento seguro para micromovilidad urbana. Su sistema inteligente permite a los usuarios parquear con total tranquilidad operando todo desde una tarjeta inteligente o su celular.
             </p>
         </div>
 
-        <div class="box reveal" style="max-width: 1000px; margin: 0 auto 80px; padding-bottom: 40px; background: rgba(255,255,255,0.02);">
+        <div class="box reveal" style="max-width: 1000px; margin: 0 auto 80px; background: rgba(255,255,255,0.02);">
             <div class="subtitulo-bikeep">Deconstrucción de Bikeep</div>
             <div class="tabla-contenedor">
                 <table class="tabla-bikeep">
                     <thead>
                         <tr>
-                            <th>Dimensión de Análisis</th>
+                            <th>Dimensión</th>
                             <th>¿Qué observar?</th>
-                            <th>Ejemplo (Caso Bikeep)</th>
+                            <th>Ejemplo (Bikeep)</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="fila-1">
-                            <td><strong>Propósito</strong></td>
-                            <td>¿Cual es la razon de ser de la empresa que le da sentido al resto de dimensiones?</td>
-                            <td>Garantizar tranquilidad en movilidad para sus usuarios.</td>
-                        </tr>
-                        <tr class="fila-2">
-                            <td><strong>Identidad Visual/Sensorial</strong></td>
-                            <td>¿Qué pretende transmitir con su forma, logo y/o nombre?</td>
-                            <td>Combinación entre bike y keep. Verde neón (Hex: #AEFF00). Tipografía moderna y amigable.</td>
-                        </tr>
-                        <tr class="fila-3">
-                            <td><strong>Sistema de conexiones</strong></td>
-                            <td>¿Qué sistema hay detrás y que otros servicios se conectan?</td>
-                            <td>IoT, Monitoreo, automatización, pagos y seguridad.</td>
-                        </tr>
-                        <tr class="fila-4">
-                            <td><strong>Diferenciación</strong></td>
-                            <td>¿Qué rasgos únicos tiene la empresa que los otros competidores no?</td>
-                            <td>Integración total físico-digital. Elegancia y minimalismo en diseño.</td>
-                        </tr>
-                        <tr class="fila-5">
-                            <td><strong>Conexión con el consumidor</strong></td>
-                            <td>¿Qué emocion o estado produce en el consumidor?</td>
-                            <td>Garantiza tranquilidad absoluta al usuario.</td>
-                        </tr>
+                        <tr class="fila-1"><td><strong>Propósito</strong></td><td>Razón de ser</td><td>Tranquilidad en movilidad.</td></tr>
+                        <tr class="fila-2"><td><strong>Identidad</strong></td><td>Visual/Sensorial</td><td>Verde neón, Tipografía moderna.</td></tr>
+                        <tr class="fila-3"><td><strong>Conexiones</strong></td><td>Sistemas</td><td>IoT, Monitoreo, Pagos.</td></tr>
+                        <tr class="fila-4"><td><strong>Diferencia</strong></td><td>Rasgos únicos</td><td>Integración físico-digital total.</td></tr>
+                        <tr class="fila-5"><td><strong>Consumidor</strong></td><td>Emoción</td><td>Garantiza confianza absoluta.</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <h2 class="reveal" style="text-align: center; margin-bottom: 40px;">Moodboard Propio / Equipo</h2>
+        <h2 class="reveal" style="text-align: center; margin-bottom: 40px;">Moodboards</h2>
         <div class="grid-layout reveal" style="max-width: 1000px; margin: 0 auto 80px;">
-            <div class="box" style="padding: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.1);">
-                <img src="bikeep moodboard.png" alt="Moodboard Bikeep" style="width: 100%; height: auto; object-fit: contain; border-radius: 12px;">
-                <h3 style="margin-top: 20px; font-size: 1.2rem; color: var(--text-muted);">Referente: Bikeep</h3>
-            </div>
-            <div class="box" style="padding: 15px; text-align: center; border: 1px solid var(--primary-glow);">
-                <img src="oasis moodboard.png" alt="Moodboard Oasis" style="width: 100%; height: auto; object-fit: contain; border-radius: 12px;">
-                <h3 style="margin-top: 20px; font-size: 1.2rem; color: var(--accent);">Nuestra Visión: Oasis</h3>
-            </div>
+            <div class="box"><img src="bikeep moodboard.png" alt="Moodboard Bikeep" style="width: 100%; border-radius: 12px;"><h3>Referente: Bikeep</h3></div>
+            <div class="box"><img src="oasis moodboard.png" alt="Moodboard Oasis" style="width: 100%; border-radius: 12px;"><h3>Nuestra Visión: Oasis</h3></div>
         </div>
 
-        <h2 class="reveal" style="text-align: center; margin-top: 80px; margin-bottom: 40px; font-size: 3.5rem;">
-            <span class="color-shift">Pitch</span>
-        </h2>
-        
+        <h2 class="reveal" style="text-align: center; margin-bottom: 40px;">Pitch</h2>
         <div class="box reveal" style="max-width: 1100px; margin: 0 auto 80px;">
-            <iframe src="Pitch.pdf" title="Presentación Pitch"></iframe>
+            <iframe src="Pitch.pdf"></iframe>
         </div>
     </div>
 
     <div id="oasis-presentation-view" class="detail-view">
         <button class="back-btn" onclick="backToOasis()">← Volver a Oasis</button>
-        <h1 style="text-align: center; margin-bottom: 40px;">Presentación del Proyecto</h1>
-        <div class="box" style="max-width: 1100px; margin: 0 auto;">
-            <iframe src="ASIS.pdf"></iframe>
+        <h1 style="text-align: center;">Presentación del Proyecto</h1>
+        <div class="box"><iframe src="ASIS.pdf"></iframe></div>
+
+        <h2 class="reveal" style="text-align: center;">Ciclo de Vida</h2>
+        <div style="text-align: center; margin-bottom: 30px;">
+            <button class="btn" onclick="toggleLifecycle()">Explorar Ciclo del Producto ▽</button>
         </div>
+        <div id="lifecycle-container" class="box" style="display: none;"><iframe src="Ciclo_Producto.pdf"></iframe></div>
 
-        <h2 class="reveal" style="text-align: center; margin-top: 80px; margin-bottom: 20px; font-size: 3.5rem;">
-            <span class="color-shift">Ciclo de Vida</span>
-        </h2>
-        
-        <p class="reveal" style="text-align: center; color: var(--text-muted); max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem; line-height: 1.6;">
-            Tener presente cómo puede funcionar nuestro producto una vez lanzado al mercado nos ayuda a pensar cuáles serían las variables que nos beneficiarían o pondrían un reto para nosotros como organización.
-        </p>
-
-        <div class="reveal" style="text-align: center; margin-bottom: 30px;">
-            <button class="btn" id="toggleLifecycleBtn" onclick="toggleLifecycle()" style="background: transparent; border: 2px solid var(--primary); box-shadow: 0 0 15px var(--primary-glow);">
-                Explorar Ciclo del Producto ▽
-            </button>
-        </div>
-
-        <div id="lifecycle-container" class="box reveal" style="max-width: 1100px; margin: 0 auto 100px; display: none; transition: all 0.5s ease;">
-            <iframe src="Ciclo_Producto.pdf" title="Ciclo de Vida del Producto"></iframe>
-        </div>
-        <!-- SECCIÓN: INNOVACIÓN SOCIAL -->
-<section id="innovacion-social" style="padding: 60px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6;">
-    <div style="max-width: 900px; margin: 0 auto;">
-        
-        <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 40px; color: #333;">Innovación Social</h2>
-
-        <!-- Gráfico Animado de Innovación Social -->
-        <div class="social-innovation-graph" style="display: flex; justify-content: center; margin-bottom: 50px;">
+        <section id="innovacion-social" class="social-section">
+            <h2 style="text-align: center;">Innovación Social</h2>
             <div class="circle-container">
                 <div class="main-node">Social</div>
                 <div class="pulse"></div>
@@ -532,102 +490,29 @@ Apple logró el hito de 1000 songs in your pocket debido a un disco duro de 1.8 
                 <div class="node n3">Equidad</div>
                 <div class="node n4">Urbano</div>
             </div>
-        </div>
-
-        <style>
-            .circle-container { position: relative; width: 200px; height: 200px; }
-            .main-node { 
-                position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-                background: #2c3e50; color: white; padding: 20px; border-radius: 50%;
-                z-index: 10; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            }
-            .pulse {
-                position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-                width: 60px; height: 60px; background: rgba(52, 152, 219, 0.4);
-                border-radius: 50%; animation: pulse-animation 2s infinite;
-            }
-            .node {
-                position: absolute; background: #3498db; color: white;
-                padding: 8px 12px; border-radius: 20px; font-size: 0.8em;
-                animation: float 3s ease-in-out infinite;
-            }
-            .n1 { top: -10px; left: 10px; }
-            .n2 { top: 120px; right: -20px; animation-delay: 0.5s; }
-            .n3 { bottom: -10px; left: 20px; animation-delay: 1s; }
-            .n4 { top: 40px; right: -50px; animation-delay: 1.5s; }
-
-            @keyframes pulse-animation {
-                0% { width: 60px; height: 60px; opacity: 1; }
-                100% { width: 250px; height: 250px; opacity: 0; }
-            }
-            @keyframes float {
-                0%, 100% { transform: translateY(0); }
-                50% { transform: translateY(-10px); }
-            }
-        </style>
-
-        <!-- Contenido Informativo -->
-        <div class="content-grid" style="display: grid; gap: 30px;">
-            
-            <div>
-                <p><strong>PROMPTS: ¿Encontraron una carencia puramente técnica o una barrera de exclusión social?</strong></p>
-                <p>Nuestro servicio cubre cualquier tipo de personal en la universidad, no discrimina un grupo social y el uso de la aplicación es fácil. La forma de organización dentro de la estructura es al azar, es decir, depende de quien reserve en el momento. En casos de que alguien que no cuente con un celular o tenga un celular de gama baja, es una carencia técnica que hemos encontrado que se convierte en algo social. También para personas con discapacidad motora, contamos con el apoyo del personal de vigilancia para guiar el proceso de escaneo, posicionamiento y verificación.</p>
+            <div class="box">
+                <p><strong>Exclusión:</strong> Nuestro servicio cubre a cualquier personal universitario. Para personas con discapacidad motora, contamos con apoyo del personal de vigilancia.</p>
+                <hr style="margin:20px 0; opacity:0.1">
+                <p><strong>Comunidad:</strong> El diseño de marca fue lo que más ajustamos tras escuchar a los usuarios, corrigiendo discordancias iniciales.</p>
+                <hr style="margin:20px 0; opacity:0.1">
+                <p><strong>Sostenibilidad:</strong> Mediante KPIs y NPS de seguridad, demostraremos que el servicio es un derecho fundamental para incentivar inversión.</p>
             </div>
-
-            <hr style="border: 0; border-top: 1px solid #eee;">
-
-            <div>
-                <p><strong>PROPOSALS: ¿Qué tanto peso tuvo la opinión de la comunidad universitaria frente a sus asunciones como ingenieros?</strong></p>
-                <p>Aún estamos en una fase introductoria de ser vistos como ingenieros. Hemos cometido errores al hacer preguntas no tan precisas en la fase de investigación. Sin embargo, el diseño de la imagen de marca fue el elemento que más ajustamos de acuerdo a la comunidad, pues existía una discordancia con nuestros valores. Aprendemos de estos errores para ser más precisos en la propuesta de servicio y enfocarnos en las verdaderas necesidades del usuario sin desviarnos.</p>
-            </div>
-
-            <hr style="border: 0; border-top: 1px solid #eee;">
-
-            <div>
-                <p><strong>PROTOTYPING: ¿Cuál creen que será el choque más fuerte entre su teoría de diseño y la realidad del comportamiento humano?</strong></p>
-                <p>El principal choque es el olvido de la reserva debido al <em>burnout</em> u ocupación académica. Para esto, aplicamos <strong>behaviour design</strong> con notificaciones no invasivas. Otro reto es la confiabilidad: al integrar lockers de seguridad, algunos usuarios podrían preferir sus propios medios de protección o dudar de la fiabilidad del sistema estandarizado.</p>
-            </div>
-
-            <hr style="border: 0; border-top: 1px solid #eee;">
-
-            <div>
-                <p><strong>SUSTAINING: ¿Cómo planean que este servicio sobreviva cuando el entusiasmo inicial o el presupuesto de la clase se agote?</strong></p>
-                <p>Mediante indicadores de éxito (<strong>KPIs</strong>). Si logramos una tasa de retorno superior al 60% y un buen <strong>NPS</strong> (Net Promoter Score) en seguridad, demostraremos que el servicio es un derecho fundamental. Esto incentivará la inversión de la universidad y de externos (empresas o personas naturales) para mantener la operación.</p>
-            </div>
-
-            <hr style="border: 0; border-top: 1px solid #eee;">
-
-            <div>
-                <p><strong>SCALING: ¿Cuáles son los mayores obstáculos para que sea el estándar en otros escenarios?</strong></p>
-                <p>La instalación de infraestructura física fuera del campus y la adaptación a nuevos espacios. También la gestión operativa de bases de datos masivas y el cumplimiento de requerimientos jurídicos de movilidad urbana para interconectarse con sistemas públicos como el <strong>SITP</strong> o <strong>Transmilenio</strong>.</p>
-            </div>
-
-            <hr style="border: 0; border-top: 1px solid #eee;">
-
-            <div>
-                <p><strong>SYSTEMIC CHANGE: ¿Qué tendría que pasar en las leyes de la ciudad o en los hábitos de los ciudadanos para que su propuesta deje de ser vista como una 'innovación' y pase a ser vista como un derecho?</strong></p>
-                <p>Debe normalizarse en empresas públicas y privadas hasta considerarse un tema de <strong>salud pública</strong> y un estándar mínimo urbano. En lo legal, nuestra aplicación integrará la <strong>Ley 2486 de 2025</strong> (bicicletas eléctricas con pedaleo asistido y motor < 350W) mediante verificación fotográfica para asegurar el uso correcto de las ciclorrutas.</p>
-            </div>
-
-        </div>
-    </div>
-</section>
+        </section>
     </div>
 
     <script>
+        // Observador para animaciones de revelado
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
+        // Navegación entre vistas
         function openView(viewId) {
             document.getElementById('main-view').style.display = 'none';
             document.querySelectorAll('.detail-view').forEach(v => v.style.display = 'none');
             document.getElementById(viewId).style.display = 'block';
             window.scrollTo(0, 0);
-            setTimeout(() => {
-                document.getElementById(viewId).querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
-            }, 50);
         }
 
         function showMain() {
@@ -637,31 +522,16 @@ Apple logró el hito de 1000 songs in your pocket debido a un disco duro de 1.8 
         }
 
         function openPdfPresentation() {
-            document.querySelectorAll('.detail-view').forEach(v => v.style.display = 'none');
-            document.getElementById('main-view').style.display = 'none';
-            document.getElementById('oasis-presentation-view').style.display = 'block';
-            window.scrollTo(0, 0);
+            openView('oasis-presentation-view');
         }
 
         function backToOasis() {
-            document.querySelectorAll('.detail-view').forEach(v => v.style.display = 'none');
-            document.getElementById('agencia-view').style.display = 'block';
-            window.scrollTo(0, 0);
+            openView('agencia-view');
         }
 
         function toggleLifecycle() {
             const container = document.getElementById('lifecycle-container');
-            const btn = document.getElementById('toggleLifecycleBtn');
-            if (container.style.display === 'none') {
-                container.style.display = 'block';
-                btn.innerHTML = 'Cerrar Vista △';
-                btn.style.borderColor = 'var(--accent)';
-                setTimeout(() => container.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
-            } else {
-                container.style.display = 'none';
-                btn.innerHTML = 'Explorar Ciclo del Producto ▽';
-                btn.style.borderColor = 'var(--primary)';
-            }
+            container.style.display = container.style.display === 'none' ? 'block' : 'none';
         }
     </script>
 </body>
